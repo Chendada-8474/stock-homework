@@ -1,0 +1,32 @@
+[
+    {
+        "Code": "0050",
+        "Name": "元大台灣50",
+        "ClosingPrice": "132.00",
+        "MonthlyAveragePrice": "129.94"
+    },
+    {
+        "Code": "0051",
+        "Name": "元大中型100",
+        "ClosingPrice": "71.95",
+        "MonthlyAveragePrice": "69.15"
+    },
+    {
+        "Code": "0052",
+        "Name": "富邦科技",
+        "ClosingPrice": "121.30",
+        "MonthlyAveragePrice": "117.78"
+    },
+    {
+        "Code": "0053",
+        "Name": "元大電子",
+        "ClosingPrice": "70.20",
+        "MonthlyAveragePrice": "68.20"
+    },
+    {
+        "Code": "0055",
+        "Name": "元大MSCI金融",
+        "ClosingPrice": "23.80",
+        "MonthlyAveragePrice": "23.19"
+    }
+]

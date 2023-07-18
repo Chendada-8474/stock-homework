@@ -1,0 +1,3 @@
+target_stocks: ["0050", "2330"]
+gcp_auth_json: "stock-homework-393211-4d2d59516f06.json"
+table_name: "stock-homework-393211.stock_homework.price"
