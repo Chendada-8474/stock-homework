@@ -6,7 +6,9 @@ from google.cloud import bigquery
 with open("config.yaml") as file:
     config = load(file, Loader=Loader)
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config["gcp_auth_json"]
+
+if config["gcp_auth_json"] in os.listdir():
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config["gcp_auth_json"]
 
 
 class StockData:
