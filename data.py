@@ -12,11 +12,11 @@ if config["gcp_auth_json"] in os.listdir():
 
 
 class StockData:
-    _client = bigquery.Client()
     _table_name = config["table_name"]
 
     def __init__(self, _test_date: date = None) -> None:
         self.last_date = _test_date if _test_date else self._get_last_date()
+        self._client = bigquery.Client() if _test_date else None
 
     def is_date_dup(self, date: date) -> bool:
         return date == self.last_date
