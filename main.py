@@ -2,12 +2,11 @@ from yaml import load, Loader
 from crawl import DailyStock
 from data import StockData
 
-
 with open("config.yaml") as file:
     config = load(file, Loader=Loader)
 
 
-def run():
+def run(request):
     stocks_today = DailyStock()
     stock_data = StockData()
 
