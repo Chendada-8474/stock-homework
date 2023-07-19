@@ -8,19 +8,23 @@ TWSE_URL = "https://openapi.twse.com.tw"
 class DailyStock:
     _STOCK_DAY_API = "/v1/exchangeReport/STOCK_DAY_AVG_ALL"
 
-    def __init__(self) -> None:
-        self._request()
+    def __init__(self, test_response=None) -> None:
+        self._request(test_response)
         self._drop_ave_price()
         self._price_to_float()
-        self._add_closing_date()
+        self._add_date(self.price_date)
 
     def get_prices(self, stocks_symbols: list = []) -> list:
         if not stocks_symbols:
-            return self._result()
+            return self._result
         return [self._result_map[code] for code in stocks_symbols]
 
-    def _request(self):
-        response = requests.get(self._STOCK_DAY_API_URL)
+    def _request(self, test_response=None):
+        if not test_response:
+            response = requests.get(self._STOCK_DAY_API_URL)
+        else:
+            response = test_response
+
         self._result = response.json()
         self._response_headers = response.headers
         self._result_map = self._symbol_as_key(self._result)
@@ -39,8 +43,8 @@ class DailyStock:
                 float(stock["ClosingPrice"]) if stock["ClosingPrice"] else None
             )
 
-    def _add_closing_date(self):
-        dt = datetime.strftime(self.price_date, "%Y-%m-%d")
+    def _add_date(self, closing_date: date):
+        dt = datetime.strftime(closing_date, "%Y-%m-%d")
         for stock in self._result:
             stock["ClosingDate"] = dt
 
@@ -54,3 +58,8 @@ class DailyStock:
             self._response_headers["last-modified"], "%a, %d %b %Y %H:%M:%S %Z"
         )
         return dt.date()
+
+
+if __name__ == "__main__":
+    t = DailyStock()
+    print(t._response_headers)

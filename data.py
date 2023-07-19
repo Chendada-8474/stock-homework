@@ -15,7 +15,6 @@ class StockData:
 
     def __init__(self) -> None:
         self.last_date = self._get_last_date()
-        pass
 
     def is_date_dup(self, date: date) -> bool:
         return date == self.last_date
@@ -32,8 +31,3 @@ class StockData:
     def insert(self, rows: list):
         errors = self._client.insert_rows_json(self._table_name, rows)
         return errors
-
-
-if __name__ == "__main__":
-    test = StockData()
-    print(test.last_date)
