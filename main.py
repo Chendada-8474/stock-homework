@@ -1,4 +1,3 @@
-import logging
 from yaml import load, Loader
 from crawl import DailyStock
 from data import StockData
@@ -17,10 +16,7 @@ def main():
 
     stocks = stocks_today.get_prices(config["target_stocks"])
 
-    errors = stock_data.insert(stocks)
-
-    if errors:
-        logging.error(errors)
+    stock_data.insert(stocks)
 
 
 if __name__ == "__main__":
