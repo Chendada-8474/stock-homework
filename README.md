@@ -54,7 +54,7 @@ Place the downloaded JSON file in the project's directory.
 
 ```yaml
 target_stocks: ["<company stock code>", "<company stock code>"]  # ex: ["0050", "2330"]
-gcp_auth_json: "<your gcp api jey>.json"
+gcp_auth_json: "<your gcp api key>.json"
 table_name: "<gcp project name>.<bigquery dataset name>.<table name>"
 ```
 
