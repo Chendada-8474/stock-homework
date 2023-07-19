@@ -21,4 +21,4 @@ def run(request):
 
 
 if __name__ == "__main__":
-    run()
+    run(None)
