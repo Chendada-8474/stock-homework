@@ -8,8 +8,8 @@ TWSE_URL = "https://openapi.twse.com.tw"
 class DailyStock:
     _STOCK_DAY_API = "/v1/exchangeReport/STOCK_DAY_AVG_ALL"
 
-    def __init__(self, test_response=None) -> None:
-        self._request(test_response)
+    def __init__(self, _test_response=None) -> None:
+        self._request(_test_response)
         self._drop_ave_price()
         self._price_to_float()
         self._add_date(self.price_date)

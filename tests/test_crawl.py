@@ -1,5 +1,4 @@
 import sys
-import json
 from datetime import date
 from os.path import dirname
 
@@ -11,7 +10,7 @@ import tests.dataset
 
 class TestDailyStock:
     test_response = tests.dataset.ResponseForTest()
-    stocks = DailyStock(test_response=test_response)
+    stocks = DailyStock(_test_response=test_response)
 
     def test_symbol_as_key(self):
         result_map = self.stocks._symbol_as_key(self.test_response.json())
