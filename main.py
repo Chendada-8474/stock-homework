@@ -7,7 +7,7 @@ with open("config.yaml") as file:
     config = load(file, Loader=Loader)
 
 
-def main():
+def run():
     stocks_today = DailyStock()
     stock_data = StockData()
 
@@ -20,4 +20,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run()

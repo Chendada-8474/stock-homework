@@ -27,7 +27,7 @@ jobs:
       with:
         name: 'stock-homework'
         runtime: 'python39'
-        entry_point: 'main'
+        entry_point: 'run'
         region: 'asia-east1'
 
     # Example of using the output
