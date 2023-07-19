@@ -6,7 +6,7 @@ This is a program that can crawl the daily closing prices of Taiwan's stock mark
 
 Data Source: [台灣證券交易所 OpenAPI](https://openapi.twse.com.tw/)
 
-## System Structure
+## System Architecture
 ![system structure](./img/system_structure.png)
 
 ## Environments
@@ -62,7 +62,7 @@ table_name: "<gcp project name>.<bigquery dataset name>.<table name>"
 
 Execute `run.py` to fetch the stock market data for the previous business day.
 
-If you are using the Windows operating system, you can use the Task Scheduler to schedule the program to run periodically. For Linux, you can use crontab to help automate the execution of the web scraping tasks.
+If you are using the Windows operating system, you can use the Task Scheduler to schedule the program to run periodically. For Linux, you can use crontab to help automate the execution of the tasks.
 
 
 ### Google Cloud Function and Cloud Scheduler
