@@ -2,7 +2,9 @@
 
 This is a program that can crawl the daily closing prices of Taiwan's stock market.
 
-- [Data Visualization](https://lookerstudio.google.com/reporting/d8ae56c6-0eee-4224-80a5-5f97450f74c2)
+[Data Visualization](https://lookerstudio.google.com/reporting/d8ae56c6-0eee-4224-80a5-5f97450f74c2)
+
+Data Source: [台灣證券交易所 OpenAPI](https://openapi.twse.com.tw/)
 
 ## System Structure
 ![system structure](./img/system_structure.png)
@@ -42,9 +44,9 @@ install packages
 $ pip3 install -r requirements.txt
 ```
 
-#### 1. down GCP API key
+#### 1. download GCP API key
 
-- [download page](https://console.cloud.google.com/apis/credentials/serviceaccountkey?_ga=2.208590738.-121430735.1530179569)
+[download page](https://console.cloud.google.com/apis/credentials/serviceaccountkey?_ga=2.208590738.-121430735.1530179569)
 
 Place the downloaded JSON file in the project's directory.
 
