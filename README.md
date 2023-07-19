@@ -2,6 +2,8 @@
 
 This is a program that can crawl the daily closing prices of Taiwan's stock market.
 
+- [Data Visualization](https://lookerstudio.google.com/reporting/d8ae56c6-0eee-4224-80a5-5f97450f74c2)
+
 ## System Structure
 ![system structure](./img/system_structure.png)
 
