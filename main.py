@@ -7,13 +7,13 @@ with open("config.yaml") as file:
 
 
 def run(request):
-    stocks_today = DailyStock()
+    stocks_latest = DailyStock()
     stock_data = StockData()
 
-    if stock_data.is_date_dup(stocks_today.price_date):
+    if stock_data.is_date_dup(stocks_latest.price_date):
         return "%s stock prices exist" % stock_data.last_date
 
-    stocks = stocks_today.get_prices(config["target_stocks"])
+    stocks = stocks_latest.get_prices(config["target_stocks"])
 
     stock_data.insert(stocks)
 
