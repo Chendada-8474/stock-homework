@@ -50,7 +50,7 @@ $ pip3 install -r requirements.txt
 
 Place the downloaded JSON file in the project's directory.
 
-#### 2. set config
+#### 2. set config.yaml
 
 ```yaml
 target_stocks: ["<company stock code>", "<company stock code>"]  # ex: ["0050", "2330"]
