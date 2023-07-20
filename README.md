@@ -54,8 +54,8 @@ Place the downloaded JSON file in the project's directory.
 
 ```yaml
 target_stocks: ["<company stock code>", "<company stock code>"]  # ex: ["0050", "2330"]
-gcp_auth_json: "<your gcp api key>.json"
-table_name: "<gcp project name>.<bigquery dataset name>.<table name>"
+gcp_auth_json: "<file name of your gcp api key>.json"
+table_name: "<your gcp project name>.<your bigquery dataset name>.<your table name>"
 ```
 
 #### 3. run
@@ -71,8 +71,11 @@ First, set config.yaml.
 
 ```yaml
 target_stocks: ["<company stock code>", "<company stock code>"]  # ex: ["0050", "2330"]
-table_name: "<gcp project name>.<bigquery dataset name>.<table name>"
+table_name: "<your gcp project name>.<your bigquery dataset name>.<your table name>"
 ```
 
 #### setting references
-- [google-github-actions/deploy-cloud-functions](https://github.com/google-github-actions/deploy-cloud-functions)
+
+- [You may need to setup the GCP Workload Identity for authorizing GitHub](https://www.youtube.com/watch?v=l-nws1e4B8M)
+- [Deploy Cloud Function by GitHub Actions](https://github.com/google-github-actions/deploy-cloud-functions)
+- [Clund Scheduler is a good tool for scheduling your Clund Function](https://cloud.google.com/scheduler/docs/schedule-run-cron-job)
