@@ -14,10 +14,25 @@ class DailyStock:
         self._price_to_float()
         self._add_date(self.price_date)
 
-    def get_prices(self, stocks_symbols: list = []) -> list:
+    def get_prices(self, stocks_symbols: list[str] = []) -> list[dict]:
+        """
+        Args:
+            stocks_symbols: the list of target stock codes.
+        Return:
+            list of stock prices.
+            format:
+            [
+                {"Code": str, "Name": str, "ClosingPrice": float, "ClosingDate": str ("%Y-%m-%d")},
+                ...
+            ]
+        """
+
         if not stocks_symbols:
             return self._result
         return [self._result_map[code] for code in stocks_symbols]
+
+    def is_code_available(self, code: str) -> bool:
+        return code in self._result_map
 
     def _request(self, test_response=None):
         if not test_response:
@@ -59,7 +74,6 @@ class DailyStock:
         )
         return dt.date()
 
-
-if __name__ == "__main__":
-    t = DailyStock()
-    print(t._response_headers)
+    @property
+    def code_list(self) -> list:
+        return list(self._result_map.keys())

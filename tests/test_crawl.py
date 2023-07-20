@@ -45,6 +45,14 @@ class TestDailyStock:
         )
         assert case1 and case2
 
+    def test_is_code_available(self):
+        case1 = all(
+            code in self.stocks._result_map
+            for code in tests.dataset.result_map_for_test.keys()
+        )
+        case2 = not "0000" in self.stocks._result_map
+        assert case1 and case2
+
     def _result_compare(self, result1, result2):
         for stock, test_stock in zip(result1, result2):
             for key in stock:

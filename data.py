@@ -20,6 +20,11 @@ class StockData:
         self.last_date = _test_date if _test_date else self._get_last_date()
 
     def is_date_dup(self, date: date) -> bool:
+        """
+        Args:
+            date: A datetime.date to check for duplication with the last date.
+        Return: True if duplicated with last date, vice versa False.
+        """
         return date == self.last_date
 
     def _get_last_date(self) -> date:
