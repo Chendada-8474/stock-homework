@@ -60,7 +60,7 @@ table_name: "<your gcp project name>.<your bigquery dataset name>.<your table na
 
 #### 3. run
 
-Execute `run.py` to fetch the stock market data for the previous business day.
+Execute `main.py` to fetch the stock market data for the previous business day.
 
 If you are using the Windows operating system, you can use the Task Scheduler to schedule the program to run periodically. For Linux, you can use crontab to help automate the execution of the tasks.
 
