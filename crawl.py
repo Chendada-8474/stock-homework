@@ -12,7 +12,7 @@ class DailyStock:
         self._request(_test_response)
         self._drop_ave_price()
         self._price_to_float()
-        self._add_date(self.price_date)
+        self._add_date(self.closing_date)
 
     def get_prices(self, stocks_symbols: list[str] = []) -> list[dict]:
         """
@@ -68,7 +68,7 @@ class DailyStock:
         return urllib.parse.urljoin(TWSE_URL, self._STOCK_DAY_API)
 
     @property
-    def price_date(self) -> date:
+    def closing_date(self) -> date:
         dt = datetime.strptime(
             self._response_headers["last-modified"], "%a, %d %b %Y %H:%M:%S %Z"
         )

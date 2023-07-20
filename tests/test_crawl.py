@@ -33,7 +33,7 @@ class TestDailyStock:
         )
 
     def test_price_date(self):
-        assert self.stocks.price_date == date(2023, 7, 18)
+        assert self.stocks.closing_date == date(2023, 7, 18)
 
     def test_get_price(self):
         case1 = self._result_compare(

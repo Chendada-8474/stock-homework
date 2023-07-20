@@ -17,7 +17,7 @@ class StockData:
     def __init__(self, _test_date: date = None) -> None:
         if not _test_date:
             self._client = bigquery.Client()
-        self.last_date = _test_date if _test_date else self._get_last_date()
+        self.latest_date = _test_date if _test_date else self._get_last_date()
 
     def is_date_dup(self, date: date) -> bool:
         """
@@ -25,7 +25,7 @@ class StockData:
             date: A datetime.date to check for duplication with the last date.
         Return: True if duplicated with last date, vice versa False.
         """
-        return date == self.last_date
+        return date == self.latest_date
 
     def _get_last_date(self) -> date:
         query = f"SELECT MAX(ClosingDate) AS last_date FROM {self._table_name}"
