@@ -40,7 +40,7 @@ class TestDailyStock:
             self.stocks.get_prices(), tests.dataset.untarget_answer
         )
         case2 = self._result_compare(
-            self.stocks.get_prices(stocks_symbols=["0050", "0051", "0052"]),
+            self.stocks.get_prices(stock_codes=["0050", "0051", "0052"]),
             tests.dataset.targeted_answer,
         )
         assert case1 and case2

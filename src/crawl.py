@@ -15,7 +15,7 @@ class DailyStock:
         self._price_to_float()
         self._add_date(self.closing_date)
 
-    def get_prices(self, stocks_symbols: list[str] = []) -> list[dict]:
+    def get_prices(self, stock_codes: list[str] = []) -> list[dict]:
         """
         Args:
             stocks_symbols: the list of target stock codes.
@@ -28,9 +28,9 @@ class DailyStock:
             ]
         """
 
-        if not stocks_symbols:
+        if not stock_codes:
             return self._result
-        return [self._result_map[code] for code in stocks_symbols]
+        return [self._result_map[code] for code in stock_codes]
 
     def is_code_available(self, code: str) -> bool:
         return code in self._result_map
