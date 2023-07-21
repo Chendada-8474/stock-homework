@@ -1,10 +1,9 @@
-from yaml import load, Loader
 from src.crawl import DailyStock
 from src.data import StockData
-from src.config import Config
+from src.config import read_config
 
 
-config = Config()
+config = read_config()
 
 
 def run(request):

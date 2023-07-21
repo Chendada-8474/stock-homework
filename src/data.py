@@ -1,9 +1,9 @@
 import os
 from datetime import date
 from google.cloud import bigquery
-from src.config import Config
+from src.config import read_config
 
-config = Config()
+config = read_config()
 
 if config.gcp_auth_json in os.listdir():
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config.gcp_auth_json
