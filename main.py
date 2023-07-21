@@ -1,9 +1,10 @@
 from yaml import load, Loader
-from crawl import DailyStock
-from data import StockData
+from src.crawl import DailyStock
+from src.data import StockData
+from src.config import Config
 
-with open("config.yaml") as file:
-    config = load(file, Loader=Loader)
+
+config = Config()
 
 
 def run(request):
@@ -13,7 +14,7 @@ def run(request):
     if stock_data.is_date_dup(stocks_latest.closing_date):
         return "%s stock prices exist" % stock_data.latest_date
 
-    stocks = stocks_latest.get_prices(config["target_stocks"])
+    stocks = stocks_latest.get_prices(config.target_stocks)
 
     stock_data.insert(stocks)
 

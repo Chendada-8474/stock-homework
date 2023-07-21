@@ -4,7 +4,7 @@ from os.path import dirname
 
 
 sys.path.append(dirname(dirname(__file__)))
-from crawl import DailyStock
+from src.crawl import DailyStock
 import tests.dataset
 
 
@@ -12,8 +12,8 @@ class TestDailyStock:
     test_response = tests.dataset.ResponseForTest()
     stocks = DailyStock(_test_response=test_response)
 
-    def test_symbol_as_key(self):
-        result_map = self.stocks._symbol_as_key(self.test_response.json())
+    def test_code_as_key(self):
+        result_map = self.stocks._code_as_key(self.test_response.json())
         assert result_map == tests.dataset.result_map_for_test
 
     def test_drop_ave_price(self):

@@ -1,10 +1,10 @@
 import sys
 from datetime import date
-from os.path import dirname
+import os
 
-
-sys.path.append(dirname(dirname(__file__)))
-from data import StockData
+ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+sys.path.append(ROOT_DIR)
+from src.data import StockData
 
 
 class TestStockData:

@@ -1,3 +1,4 @@
+import sys
 import requests
 import urllib.parse
 from datetime import date, datetime
@@ -42,9 +43,9 @@ class DailyStock:
 
         self._result = response.json()
         self._response_headers = response.headers
-        self._result_map = self._symbol_as_key(self._result)
+        self._result_map = self._code_as_key(self._result)
 
-    def _symbol_as_key(self, results: dict) -> dict:
+    def _code_as_key(self, results: dict) -> dict:
         symbol_key_results = {stock["Code"]: stock for stock in results}
         return symbol_key_results
 

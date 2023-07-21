@@ -1,18 +1,16 @@
 import os
 from datetime import date
-from yaml import load, Loader
 from google.cloud import bigquery
+from src.config import Config
 
-with open("config.yaml") as file:
-    config = load(file, Loader=Loader)
+config = Config()
 
-
-if config["gcp_auth_json"] in os.listdir():
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config["gcp_auth_json"]
+if config.gcp_auth_json in os.listdir():
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config.gcp_auth_json
 
 
 class StockData:
-    _table_name = config["table_name"]
+    _table_name = config.table_name
 
     def __init__(self, _test_date: date = None) -> None:
         if not _test_date:
