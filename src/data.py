@@ -4,8 +4,10 @@ from google.cloud import bigquery
 from src.config import read_config
 
 config = read_config()
+ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
+CONFIG_PATH = os.path.join(ROOT_DIR, "config.yaml")
 
-if config.gcp_auth_json in os.listdir():
+if os.path.exists(CONFIG_PATH):
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config.gcp_auth_json
 
 
@@ -15,7 +17,7 @@ class StockData:
     def __init__(self, _test_date: date = None) -> None:
         if not _test_date:
             self._client = bigquery.Client()
-        self.latest_date = _test_date if _test_date else self._get_last_date()
+        self.latest_date = _test_date
 
     def is_date_dup(self, date: date) -> bool:
         """
@@ -23,6 +25,9 @@ class StockData:
             date: A datetime.date to check for duplication with the last date.
         Return: True if duplicated with last date, vice versa False.
         """
+        if not self.latest_date:
+            self.latest_date = self._get_last_date()
+
         return date == self.latest_date
 
     def _get_last_date(self) -> date:
