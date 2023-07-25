@@ -5,10 +5,10 @@ from src.config import read_config
 
 config = read_config()
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
-CONFIG_PATH = os.path.join(ROOT_DIR, "config.yaml")
+JSON_PATH = os.path.join(ROOT_DIR, config.gcp_auth_json)
 
-if os.path.exists(CONFIG_PATH):
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = config.gcp_auth_json
+if os.path.exists(JSON_PATH):
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = JSON_PATH
 
 
 class StockData:
